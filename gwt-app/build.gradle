@@ -13,17 +13,19 @@ repositories { mavenCentral() }
 dependencies {
     compile project(":shared-lib")
     compile "com.google.gwt:gwt-user:2.8.1"
+    compile "com.google.gwt:gwt-dev:2.8.1"
 }
 
-gwt {
-    gwtVersion = '2.8.1'
+gradle.projectsEvaluated {
+    gwt {
+        gwtVersion = '2.8.1'
 
-    modules 'example.gwtSharedLibrary.GwtSharedLibrary'
+        modules 'example.gwtSharedLibrary.GwtSharedLibrary'
 
-    minHeapSize = "4096M"
-    maxHeapSize = "4096M"
+        minHeapSize = "4096M"
+        maxHeapSize = "4096M"
 
-    //src += files('../lgst-lib/src/main/java')
-    //src = src +  files(project(':lgst-lib').sourceSets.main.allJava.srcDirs) + files(project(':lgst-lib').sourceSets.main.output.resourcesDir)
+        src += files('../gwt-lib/src/main/java')
+        //src = src +  files(project(':lgst-lib').sourceSets.main.allJava.srcDirs) + files(project(':lgst-lib').sourceSets.main.output.resourcesDir)
+    }
 }
-//evaluationDependsOn(":lgst-lib")
