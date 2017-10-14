@@ -25,7 +25,6 @@ gradle.projectsEvaluated {
         minHeapSize = "4096M"
         maxHeapSize = "4096M"
 
-        src += files('../gwt-lib/src/main/java')
-        //src = src +  files(project(':lgst-lib').sourceSets.main.allJava.srcDirs) + files(project(':lgst-lib').sourceSets.main.output.resourcesDir)
+        src += files(project(':shared-lib').sourceSets.main.allJava.srcDirs)
     }
 }
